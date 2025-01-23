@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Runs a service container.
+#
+
+set -e
+
+cd "$(dirname "$0")/../.."
+
+docker container run \
+    --rm \
+    --interactive \
+    --tty \
+    --publish 4000:4000 \
+    --name adwell \
+    --env DATABASE_URL=ecto://postgres:postgres@host.docker.internal/MY_APP_dev \
+    --env SECRET_KEY_BASE=TOP_SECRET \
+    MY_APP-production bin/server

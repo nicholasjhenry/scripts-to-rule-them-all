@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Builds a service container for release.
+#
+
+set -e
+
+cd "$(dirname "$0")/../.."
+
+docker image build --tag MY_APP-production .
