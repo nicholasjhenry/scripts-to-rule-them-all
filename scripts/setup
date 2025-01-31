@@ -9,16 +9,11 @@ cd "$(dirname "$0")/.."
 
 script/bootstrap
 
+echo "==> Setting up assets…"
+mix cmd --app MY_PROJECT_web do assets.setup, assets.build
+
 echo "==> Setting up DB…"
 # reset database to a fresh state.
-# mix ecto.reset
+eval "$(read_env)" mix ecto.reset
 
-if [ -f ".env" ]; then
-    echo "==> Creating backup for .env…"
-    cp .env .env.backup
-fi
-
-cp .env.template .env
-
-echo "==> App is now ready to go! 🚀"
-echo "==> Please update the .env file with the correct values."
+echo "==> The project is setup! 🚀 Load the database dump before running script/server."

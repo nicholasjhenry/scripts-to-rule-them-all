@@ -6,9 +6,14 @@ set -e
 
 cd "$(dirname "$0")/.."
 
+source ./script/sh/read_env
+
 script/bootstrap
+
+echo "==> Starting Docker Container..."
+docker compose up -d
 
 echo "==> Updating db…"
 # run all database migrations to ensure everything is up to date.
 
-mix ecto.migrate
+eval "$(read_env)" mix ecto.migrate
