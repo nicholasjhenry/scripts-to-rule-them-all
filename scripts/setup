@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 script/bootstrap
 
 echo "==> Setting up assets…"
-mix cmd --app MY_PROJECT_web do assets.setup, assets.build
+mix do --app MY_PROJECT_web assets.setup, assets.build
 
 echo "==> Setting up DB…"
 # reset database to a fresh state.
