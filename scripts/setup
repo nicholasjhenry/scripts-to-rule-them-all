@@ -16,4 +16,4 @@ echo "==> Setting up DB…"
 # reset database to a fresh state.
 eval "$(read_env)" mix ecto.reset
 
-echo "==> The project is setup! 🚀 Load the database dump before running script/server."
+echo "==> The project is setup! 🚀 Is there demo data to load?"
