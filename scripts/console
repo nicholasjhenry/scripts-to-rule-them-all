@@ -16,7 +16,7 @@ if [ -n "$1" ]; then
     # to the appropriate console.
     if [ "$1" = "production" ]; then
         echo "==> Is SSH setup? fly ssh issue --agent"
-        fly ssh console --pty -C "/app/bin/adwell remote"
+        fly ssh console --pty -C "/app/bin/MY_PROJECT_remote"
     else
         echo "Sorry, I don't know how to connect to the '$1' environment."
         exit 1
